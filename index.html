@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Wedding of Muliani & Partner</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #2c221e;
+            color: #333;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        /* Sampul Depan Pernikahan */
+        #cover-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #2c221e, #4a3b32);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            z-index: 10;
+            padding: 20px;
+            transition: transform 0.8s ease, opacity 0.8s ease;
+        }
+
+        #cover-page.hidden {
+            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .cover-box h3 {
+            color: #f4d06f;
+            letter-spacing: 3px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .cover-box h1 {
+            font-size: 2.3rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .guest-name {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px 25px;
+            border-radius: 30px;
+            margin: 20px 0;
+            font-size: 1.1rem;
+            border: 1px solid #f4d06f;
+        }
+
+        .open-btn {
+            background-color: #f4d06f;
+            color: #2c221e;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+
+        .open-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* Isi Utama Undangan Pernikahan */
+        #main-invitation {
+            width: 100%;
+            max-width: 450px;
+            height: 100vh;
+            background: #faf6f0;
+            overflow-y: auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .inv-header h3 {
+            color: #b8860b;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .inv-header h1 {
+            font-size: 2rem;
+            color: #2c221e;
+            margin-bottom: 25px;
+        }
+
+        .photo-frame {
+            width: 140px;
+            height: 140px;
+            background: #ddd;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #666;
+            border: 4px solid #b8860b;
+        }
+
+        .info-card {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+
+        .info-card p {
+            margin: 10px 0;
+            font-size: 0.95rem;
+            color: #444;
+        }
+
+        .map-btn {
+            display: block;
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 10px;
+            border-radius: 8px;
+            font-weight: bold;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .closing {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 30px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SAMPUL DEPAN (KHUSUS UNTUK HATIFA) -->
+    <div id="cover-page">
+        <div class="cover-box">
+            <h3>THE WEDDING OF</h3>
+            <h1>Muliani & Partner</h1>
+            <p>Kepada Yth. Sahabatku,</p>
+            <!-- Nama Tamu Khusus Hafifa -->
+            <div class="guest-name"><b>Hafifa Anggereni</b></div>
+            <button class="open-btn" onclick="openInvitation()">💌 Buka Undangan</button>
+        </div>
+    </div>
+
+    <!-- ISI UTAMA UNDANGAN PERNIKAHAN MULIANI -->
+    <div id="main-invitation">
+        <div class="inv-header">
+            <h3>The Wedding of</h3>
+            <h1>Muliani & Partner</h1>
+        </div>
+
+        <div class="photo-frame">
+            <span>Foto Muliani</span>
+        </div>
+
+        <p style="color: #666; font-size: 0.9rem;">Maha suci Allah yang telah menciptakan makhluk-nya berpasang-pasangan. Tanpa mengurangi rasa hormat, kami mengundang sahabat tercinta, <b>Hafifa</b>, untuk hadir di acara pernikahan kami.</p>
+
+        <div class="info-card">
+            <p>📅 <b>Hari/Tanggal:</b> Minggu, 15 November 2026</p>
+            <p>⏰ <b>Akad Nikah:</b> 09.00 WITA</p>
+            <p>🎉 <b>Resepsi:</b> 11.00 WITA - Selesai</p>
+            <p>📍 <b>Lokasi:</b> Takalala, Soppeng</p>
+            <a href="https://maps.google.com" target="_blank" class="map-btn">📍 Lihat Lokasi Google Maps</a>
+        </div>
+
+        <p class="closing">Merupakan suatu kehormatan dan kebahagiaan tersendiri bagi kami apabila Hafifa berkenan hadir untuk memberikan doa restu.</p>
+        
+        <p style="margin-top: 40px; font-size: 0.75rem; color: #999;">Created by Viteku Digital Invitation</p>
+    </div>
+
+    <!-- Musik Romantis -->
+    <audio id="bg-music" loop>
+        <source src="https://www.bensound.com/bensound-music/bensound-romantic.mp3" type="audio/mp3">
+    </audio>
+
+    <script>
+        function openInvitation() {
+            const cover = document.getElementById('cover-page');
+            cover.classList.add('hidden');
+
+            const music = document.getElementById('bg-music');
+            music.play().catch(error => {
+                console.log("Audio play blocked:", error);
+            });
+        }
+    </script>
+
+</body>
+</html>
